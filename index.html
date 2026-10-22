@@ -83,41 +83,61 @@ body{background-position:center center!important;background-size:cover!important
 @media(max-width:650px){.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stats-button{font-size:12px;padding:9px}.stats-panel{max-height:93vh}.stats-word{align-items:flex-start}}
 
 .profile-panel{max-width:510px}.profile-panel form{display:flex;flex-direction:column;gap:12px;margin:22px 0}.profile-panel label{font-weight:800}.profile-panel input{width:100%;padding:16px 18px;border:2px solid #e5bdc9;border-radius:16px;font-size:18px;background:#fffaf5;color:#553745;outline:none}.profile-panel input:focus{border-color:#c87d9b}.profile-error{color:#a32f54;min-height:18px;font-size:13px}.profile-choice{border:1px solid #e6c4d1;background:#fff6f5;border-radius:15px;padding:12px 16px;margin:5px;cursor:pointer;color:#60404e;font-weight:700}.profile-choice:hover{background:#f8d9e6}.hud{flex-wrap:wrap}
+
+.auth-tabs{display:flex;gap:10px;margin:14px 0}.auth-tabs button{flex:1;padding:12px;border:1px solid #e5bdc9;border-radius:13px;background:#fff7f3;cursor:pointer;font-weight:800;color:#694458}.auth-tabs button.active{background:#f8d6e4;border-color:#bb7899}.profile-panel .auth-help{font-size:13px;color:#886a78}.cloud-status{font-size:12px;color:#6b8d75;margin:3px 0}.profile-panel input{margin:0}.auth-secondary{background:transparent;border:0;text-decoration:underline;color:#945375;cursor:pointer;padding:8px}.profile-panel .hidden{display:none!important}
 </style></head><body><div class="room" aria-hidden="true"><div class="window"></div><div class="shelf"></div><div class="books">📚 📖</div><div class="plant">🪴</div><div class="rug"></div><span class="sparkle one">✦</span><span class="sparkle two">✧</span><span class="sparkle three">✦</span></div><main class="wrap"><header class="top"><div class="logo">🐾 Академия ЕГЭ</div><div class="hud"><button type="button" class="stats-button" id="openProfile">🐱 <span id="profileName">Мой ник</span></button><button type="button" class="stats-button" id="openStats">📊 Моя статистика</button><div class="pill" id="livesTop">❤️❤️❤️</div><div class="pill" id="coins">🪙 0</div></div></header><nav class="rooms" aria-label="Комнаты академии">
 <span class="room-active">🐾 Зал ударений</span><span class="room-locked">🔒 Орфография</span><span class="room-locked">🔒 Пунктуация</span><span class="room-locked">🔒 Лексика</span><span class="room-locked">🔒 Сочинение</span>
-</nav><section class="hero"><div class="cat" aria-hidden="true">🐱</div><h1>Зал ударений</h1><p>Тренируй ударения сколько захочешь — слова будут повторяться в новом порядке ✨</p></section><section class="card"><div class="stats"><span id="step">Круг 1 · Слово 1</span><span id="lives">❤️❤️❤️</span><span id="score">⭐ 0</span></div><div class="progress"><div class="bar" id="bar"></div></div><div id="game"><div class="prompt">На какую гласную падает ударение?</div><p class="hint">Нажми на любую гласную в слове</p><p class="word-context" id="wordContext" aria-live="polite"></p><div class="letters" id="letters" role="group" aria-label="Выбор ударной гласной"></div><div class="feedback" id="feedback" aria-live="polite"></div><div class="actions"><button class="primary" id="check" disabled>Проверить ✨</button><button class="secondary hidden" id="next">Дальше →</button></div></div><div id="finish" class="hidden"><h2 id="resultTitle"></h2><p id="resultText"></p><button class="primary" id="restart">Играть ещё 🐾</button></div></section><div class="footer">Ирэм — репетитор по русскому 💗</div></main><div class="stats-overlay hidden" id="profileOverlay" role="dialog" aria-modal="true" aria-labelledby="profileHeading"><div class="stats-panel profile-panel"><h2 id="profileHeading">🐱 Добро пожаловать в Академию!</h2><p class="stats-subtitle">Придумай ник, чтобы сохранять свои монетки, ответы и ошибки отдельно от других игроков на этом устройстве.</p><form id="profileForm"><label for="nickname">Твой ник</label><input id="nickname" maxlength="20" minlength="2" autocomplete="off" placeholder="Например, Котик_100" required><p class="profile-error" id="profileError" aria-live="polite"></p><button type="submit" class="primary">Начать учиться 🐾</button></form><div id="profileList"></div><p class="stats-note">Ник не создаёт онлайн-аккаунт. Профили доступны только в этом браузере. Для синхронизации между устройствами позже понадобится сервер.</p></div></div><div class="stats-overlay hidden" id="statsOverlay" role="dialog" aria-modal="true" aria-labelledby="statsHeading">
+</nav><section class="hero"><div class="cat" aria-hidden="true">🐱</div><h1>Зал ударений</h1><p>Тренируй ударения сколько захочешь — слова будут повторяться в новом порядке ✨</p></section><section class="card"><div class="stats"><span id="step">Круг 1 · Слово 1</span><span id="lives">❤️❤️❤️</span><span id="score">⭐ 0</span></div><div class="progress"><div class="bar" id="bar"></div></div><div id="game"><div class="prompt">На какую гласную падает ударение?</div><p class="hint">Нажми на любую гласную в слове</p><p class="word-context" id="wordContext" aria-live="polite"></p><div class="letters" id="letters" role="group" aria-label="Выбор ударной гласной"></div><div class="feedback" id="feedback" aria-live="polite"></div><div class="actions"><button class="primary" id="check" disabled>Проверить ✨</button><button class="secondary hidden" id="next">Дальше →</button></div></div><div id="finish" class="hidden"><h2 id="resultTitle"></h2><p id="resultText"></p><button class="primary" id="restart">Играть ещё 🐾</button></div></section><div class="footer">Ирэм — репетитор по русскому 💗</div></main><div class="stats-overlay hidden" id="profileOverlay" role="dialog" aria-modal="true" aria-labelledby="profileHeading"><div class="stats-panel profile-panel"><h2 id="profileHeading">🐱 Вход в Академию ЕГЭ</h2><p class="stats-subtitle">Создай аккаунт: твои монетки и ошибки будут сохраняться в облаке и доступны с разных устройств.</p><div class="auth-tabs"><button type="button" id="tabSignup" class="active">Регистрация</button><button type="button" id="tabSignin">Войти</button></div><form id="profileForm"><div id="nicknameGroup"><label for="nickname">Твой ник</label><input id="nickname" maxlength="20" minlength="2" autocomplete="nickname" placeholder="Например, Котик_100"></div><label for="authEmail">Электронная почта</label><input id="authEmail" type="email" autocomplete="email" placeholder="example@mail.ru" required><label for="authPassword">Пароль (от 6 символов)</label><input id="authPassword" type="password" minlength="6" autocomplete="current-password" required><p class="profile-error" id="profileError" aria-live="polite"></p><button type="submit" class="primary" id="authSubmit">Зарегистрироваться 🐾</button></form><button type="button" class="auth-secondary hidden" id="signoutButton">Выйти из аккаунта</button><p class="auth-help" id="authHint">После регистрации проверь почту и подтверди адрес, если Supabase попросит.</p><p class="cloud-status" id="cloudStatus"></p></div></div><div class="stats-overlay hidden" id="statsOverlay" role="dialog" aria-modal="true" aria-labelledby="statsHeading">
 <div class="stats-panel"><button class="stats-close" id="closeStats" aria-label="Закрыть статистику">×</button>
 <h2 id="statsHeading">🐾 Моя статистика</h2><p class="stats-subtitle">Твои успехи в Зале ударений</p>
 <div class="stats-grid" id="statsSummary"></div>
 <h3>📚 Слова, в которых чаще всего ошибаешься</h3><div class="stats-list" id="statsMistakes"></div>
 <h3>💗 Что стоит повторить</h3><div class="stats-list" id="statsReview"></div>
-<p class="stats-note">Статистика сохраняется только в этом браузере. При очистке данных сайта она может исчезнуть.</p>
-</div></div><script>
+<p class="stats-note">Статистика синхронизируется с облаком при подключении к интернету.</p>
+</div></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script>
+const SUPABASE_URL='https://fsblypgmqxwcynxymfns.supabase.co';
+const SUPABASE_PUBLIC_KEY='sb_publishable_6vOJ5nMxt_rCMFsAKsbxEQ_8Kn4nrHP';
+const db=window.supabase?.createClient(SUPABASE_URL,SUPABASE_PUBLIC_KEY);
+let cloudUser=null;
+let cloudReady=false;
+let writeQueue=Promise.resolve();
+function queueCloudWrite(fn){if(!cloudUser||!db)return;const userId=cloudUser.id;writeQueue=writeQueue.then(async()=>{if(cloudUser?.id!==userId)return;await fn(userId)}).catch(err=>{console.warn("Cloud sync error",err);setCloudStatus("⚠️ Не удалось синхронизировать. Проверь интернет.")})}
+function setCloudStatus(msg){const e=document.getElementById("cloudStatus");if(e)e.textContent=msg}
 
 const tasks=[["аэропорты",5],["банты",1],["бороду",1],["бухгалтеров",4],["вероисповедание",9],["водопровод",8],["газопровод",8],["гражданство",5],["дефис",3],["дешевизна",5],["диспансер",7],["договорённость",7],["документ",5],["досуг",3],["еретик",4],["жалюзи",5],["значимость",2],["иксы",0],["каталог",5],["квартал",5],["километр",5],["конусов",1],["корысть",3],["краны",2],["кремень",4],["кремня",5],["лекторов",1],["локтя",1],["локтей",4],["лыжня",4],["местностей",1],["намерение",3],["недруг",1],["недуг",3],["некролог",6],["ненависть",1],["нефтепровод",9],["новостей",6],["ногтя",1],["ногтей",4],["отрочество",0],["партер",4],["портфель",5],["приданое",4],["призыв",4],["свёкла",2],["сироты",3],["созыв",3],["сосредоточение",8],["средства",2],["статуя",2],["столяр",4],["таможня",3],["торты",1],["туфля",1],["цемент",3],["центнер",1],["цепочка",3],["шарфы",1],["шофёр",3],["эксперт",4],["верна",4],["значимый",2],["красивее",4],["красивейший",4],["кухонный",1],["ловка",4],["мозаичный",4],["оптовый",3],["прозорливый",7],["прозорлива",7],["сливовый",2],["брала",4],["бралась",4],["взяла",4],["взялась",4],["влилась",4],["ворвалась",6],["воспринять",7],["восприняла",9],["воссоздала",9],["вручит",4],["гнала",4],["гналась",4],["добрала",6],["добралась",6],["дождалась",6],["дозвонится",6],["дозировать",3],["ждала",4],["закупорить",3],["занять",3],["занял",1],["заняла",5],["заняли",1],["заперла",6],["запломбировать",11],["защемит",5],["звала",4],["звонит",4],["кашлянуть",1],["клала",2],["клеить",2],["кралась",2],["кровоточить",8],["лгала",4],["лила",3],["лилась",3],["наделит",5],["надорвалась",8],["назвалась",6],["накренится",6],["налила",5],["нарвала",6],["начать",3],["начал",1],["начала",5],["начали",1],["обзвонит",6],["облегчить",6],["облегчит",6],["облилась",5],["обнялась",5],["обогнала",7],["ободрала",7],["ободрить",5],["ободрит",5],["ободриться",5],["ободрится",5],["обострить",6],["одолжить",5],["одолжит",5],["озлобить",3],["оклеить",3],["окружит",5],["опошлить",2],["осведомиться",3],["осведомится",3],["отбыла",5],["отдала",5],["откупорить",3],["отозвала",7],["отозвалась",7],["перезвонит",8],["перелила",7],["плодоносить",8],["пломбировать",9],["повторит",6],["позвала",6],["позвонит",6],["полила",5],["положить",5],["положил",5],["понять",3],["поняла",5],["послала",4],["прибыть",4],["прибыл",2],["прибыла",6],["прибыли",2],["принять",4],["принял",2],["приняла",6],["приняли",2],["рвала",4],["сверлит",5],["сняла",4],["создала",6],["сорвала",6],["убрала",5],["углубить",5],["укрепит",5],["черпать",1],["щемит",3],["щёлкать",1],["довезённый",5],["загнутый",1],["занятый",1],["занята",5],["запертый",1],["заселённый",5],["заселена",7],["кровоточащий",8],["наживший",3],["наливший",3],["нанявшийся",3],["начавший",3],["начатый",1],["низведённый",6],["облегчённый",6],["ободрённый",5],["обострённый",6],["отключённый",6],["повторённый",6],["поделённый",5],["понявший",3],["принятый",2],["принята",6],["приручённый",6],["проживший",4],["снята",4],["согнутый",1],["углублённый",6],["закупорив",3],["начав",3],["начавшись",3],["отдав",3],["поняв",3],["прибыв",4],["создав",4],["вовремя",1],["доверху",1],["донизу",1],["досуха",1],["засветло",1],["надолго",3],["ненадолго",5],["отзыв",0,"о книге, фильме или работе"],["отзыв",3,"посла из другой страны"]];
 const vowels=/[аеёиоуыэюя]/i;
-const PROFILE_LIST_KEY='iremAcademyProfilesV1';
-const ACTIVE_PROFILE_KEY='iremAcademyActiveProfileV1';
 const LEGACY_SAVE_KEY='iremCatAcademyInfinite2026';
-const LEGACY_STATS_KEY='iremCatAcademyWordStatsV1';
 let activeNick='';
 let SAVE_KEY='';
 let WORD_STATS_KEY='';
-function profileKey(n){return 'iremAcademyProfile:'+encodeURIComponent(n.toLowerCase())}
-function setActiveNick(n){activeNick=n;SAVE_KEY=profileKey(n)+':progress';WORD_STATS_KEY=profileKey(n)+':words';localStorage.setItem(ACTIVE_PROFILE_KEY,n);document.getElementById('profileName').textContent=n}
-function listProfiles(){try{return JSON.parse(localStorage.getItem(PROFILE_LIST_KEY)||'[]')}catch{return []}}
-function profileExists(n){return listProfiles().some(x=>x.toLowerCase()===n.toLowerCase())}
-function openProfiles(){renderProfiles();el('profileOverlay').classList.remove('hidden');el('nickname').value='';el('profileError').textContent='';el('nickname').focus()}
-function renderProfiles(){const box=el('profileList');box.replaceChildren();const list=listProfiles();if(!list.length)return;const h=document.createElement('h3');h.textContent='Продолжить под своим ником';box.append(h);for(const nick of list){const b=document.createElement('button');b.type='button';b.className='profile-choice';b.textContent='🐾 '+nick;b.addEventListener('click',()=>activateProfile(nick));box.append(b)}}
-function activateProfile(nick){setActiveNick(nick);wordStats=readWordStats();state=readSave();order=shuffle();index=0;selected=null;checked=false;lives=state.lives??3;score=state.score||0;coins=state.coins||0;answered=state.answered||0;round=state.round||1;if(lives===0)lives=3;el('game').removeAttribute('aria-hidden');el('profileOverlay').classList.add('hidden');el('statsOverlay').classList.add('hidden');render()}
-
+function setActiveNick(n){activeNick=n;SAVE_KEY='iremAcademyCloud:'+cloudUser.id+':progress';WORD_STATS_KEY='iremAcademyCloud:'+cloudUser.id+':words';document.getElementById('profileName').textContent=n}
+function openProfiles(){el('profileOverlay').classList.remove('hidden');el('profileHeading').textContent=cloudUser?'🐱 Твой аккаунт':'🐱 Вход в Академию ЕГЭ';el('profileForm').classList.toggle('hidden',!!cloudUser);el('signoutButton').classList.toggle('hidden',!cloudUser);el('tabSignup').parentElement.classList.toggle('hidden',!!cloudUser);el('authHint').textContent=cloudUser?'Ты вошёл как '+activeNick+'. Прогресс сохраняется в облаке.':'Зарегистрируйся или войди. Подтверди почту после регистрации, если потребуется.';el('profileError').textContent=''}
+async function activateProfile(user){
+ cloudUser=user;
+ const {data:profile,error:profileErr}=await db.from('profiles').select('*').eq('id',user.id).maybeSingle();
+ if(profileErr)throw profileErr;
+ let nick=profile?.nickname;
+ if(!nick){nick=(user.user_metadata?.nickname||'').trim();if(!nick){cloudUser=null;throw new Error('Ник не найден. Зарегистрируйся заново или обратись к преподавателю.')}
+ const {error:insertErr}=await db.from('profiles').insert({id:user.id,nickname:nick});if(insertErr)throw insertErr;
+ }
+ setActiveNick(nick);
+ const {data:rows,error:wordErr}=await db.from('word_stats').select('word_key,correct_count,error_count').eq('user_id',user.id);
+ if(wordErr)throw wordErr;
+ wordStats={};for(const r of rows||[])wordStats[r.word_key]={correct:r.correct_count,wrong:r.error_count,lastWrong:r.error_count>r.correct_count};
+ localStorage.setItem(WORD_STATS_KEY,JSON.stringify(wordStats));
+ state=profile||{};
+ order=shuffle();index=0;selected=null;checked=false;
+ lives=state.lives??3;score=state.correct_answers||0;coins=state.coins||0;answered=state.total_answers||0;round=1;
+ if(lives===0)lives=3;
+ cloudReady=true;el('profileOverlay').classList.add('hidden');el('statsOverlay').classList.add('hidden');el('game').removeAttribute('aria-hidden');render();setCloudStatus('☁️ Прогресс подключён к облаку');
+}
 const el=id=>document.getElementById(id);
 function readSave(){try{return JSON.parse(localStorage.getItem(SAVE_KEY)||'{}')}catch{return {}}}
 function shuffle(){let a=Array.from({length:tasks.length},(_,i)=>i);for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function readWordStats(){try{const v=JSON.parse(localStorage.getItem(WORD_STATS_KEY)||'{}');return v&&typeof v==='object'&&!Array.isArray(v)?v:{}}catch{return {}}}
 let wordStats={};
 function wordId(t){return t[0]+'|'+t[1]+'|'+(t[2]||'')}
-function recordWord(t,ok){const k=wordId(t);const row=wordStats[k]||{correct:0,wrong:0};if(ok)row.correct++;else row.wrong++;row.lastWrong=!ok;wordStats[k]=row;try{localStorage.setItem(WORD_STATS_KEY,JSON.stringify(wordStats))}catch(e){}}
+function recordWord(t,ok){const k=wordId(t);const row=wordStats[k]||{correct:0,wrong:0};if(ok)row.correct++;else row.wrong++;row.lastWrong=!ok;wordStats[k]=row;try{localStorage.setItem(WORD_STATS_KEY,JSON.stringify(wordStats))}catch(e){};const snapshot={...row};queueCloudWrite(async userId=>{const {error}=await db.from('word_stats').upsert({user_id:userId,word_key:k,correct_count:snapshot.correct,error_count:snapshot.wrong,updated_at:new Date().toISOString()},{onConflict:'user_id,word_key'});if(error)throw error})}
 function wordLabel(t){const word=t[0],i=t[1];return [...word].map((c,j)=>j===i?(c==='ё'?'ё':c+'́'):c).join('')+(t[2]?' ('+t[2]+')':'')}
 function addStatTile(label,value){const div=document.createElement('div');div.className='stats-tile';const val=document.createElement('div');val.className='stats-value';val.textContent=value;const cap=document.createElement('div');cap.className='stats-caption';cap.textContent=label;div.append(val,cap);el('statsSummary').append(div)}
 function addStatWord(target,t,row){const div=document.createElement('div');div.className='stats-word';const left=document.createElement('div');const strong=document.createElement('strong');strong.textContent=wordLabel(t);const small=document.createElement('small');small.textContent=`Верно: ${row.correct} · Всего попыток: ${row.correct+row.wrong}`;left.append(strong,small);const right=document.createElement('span');right.className='error-count';right.textContent=`Ошибок: ${row.wrong}`;div.append(left,right);target.append(div)}
@@ -142,7 +162,7 @@ let order=shuffle(); // Новый случайный порядок при ка
 let index=0; // Начинаем новую перемешанную последовательность
 let selected=null,checked=false;
 let lives=state.lives??3,score=state.score||0,coins=state.coins||0,answered=state.answered||0,round=state.round||1;
-function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify({order,index,lives,score,coins,answered,round}))}catch(e){}}
+function save(){if(!cloudReady)return;try{localStorage.setItem(SAVE_KEY,JSON.stringify({order,index,lives,score,coins,answered,round}))}catch(e){};const snapshot={lives,coins,total_answers:answered,correct_answers:score,updated_at:new Date().toISOString()};queueCloudWrite(async userId=>{const {error}=await db.from('profiles').update(snapshot).eq('id',userId);if(error)throw error})}
 function accented(word,pos){return [...word].map((c,i)=>i===pos?(c==='ё'?'ё':c+'\u0301'):c).join('')}
 function render(){
  checked=false;selected=null;
@@ -220,11 +240,31 @@ el('next').addEventListener('click',()=>{
 el('restart').addEventListener('click',()=>{index=0;order=shuffle();round++;lives=3;save();el('game').classList.remove('hidden');el('finish').classList.add('hidden');render()});
 el('openStats').addEventListener('click',showStatistics);
 el('openProfile').addEventListener('click',openProfiles);
-el('profileForm').addEventListener('submit',e=>{e.preventDefault();const nick=el('nickname').value.trim().replace(/\s+/g,' ');if(!/^[\p{L}\p{N}_ .-]{2,20}$/u.test(nick)){el('profileError').textContent='Ник: 2–20 символов, буквы, цифры, пробел, _ . или -';return}if(profileExists(nick)){el('profileError').textContent='Такой ник уже есть. Выбери его ниже или придумай другой.';return}const list=listProfiles();list.push(nick);localStorage.setItem(PROFILE_LIST_KEY,JSON.stringify(list));activateProfile(nick)});
-const existingNick=localStorage.getItem(ACTIVE_PROFILE_KEY);
-if(existingNick&&profileExists(existingNick)){activateProfile(existingNick)}else{openProfiles()}
+let authMode='signup';
+function setAuthMode(mode){authMode=mode;el('tabSignup').classList.toggle('active',mode==='signup');el('tabSignin').classList.toggle('active',mode==='signin');el('nicknameGroup').classList.toggle('hidden',mode==='signin');el('authSubmit').textContent=mode==='signup'?'Зарегистрироваться 🐾':'Войти 🐾';el('profileError').textContent=''}
+el('tabSignup').addEventListener('click',()=>setAuthMode('signup'));
+el('tabSignin').addEventListener('click',()=>setAuthMode('signin'));
+el('profileForm').addEventListener('submit',async e=>{
+ e.preventDefault();if(!db){el('profileError').textContent='Не загрузилась библиотека Supabase. Проверь интернет.';return}
+ const email=el('authEmail').value.trim(),password=el('authPassword').value;
+ const button=el('authSubmit');button.disabled=true;el('profileError').textContent='';
+ try{
+  if(authMode==='signup'){
+   const nick=el('nickname').value.trim().replace(/\s+/g,' ');
+   if(!/^[\p{L}\p{N}_ .-]{2,20}$/u.test(nick))throw new Error('Ник: 2–20 символов, буквы, цифры, пробел, _ . или -');
+   const {data,error}=await db.auth.signUp({email,password,options:{data:{nickname:nick},emailRedirectTo:'https://geofira.github.io/academy-ege/'}});
+   if(error)throw error;
+   if(data.session&&data.user){await activateProfile(data.user)}else{el('profileError').textContent='✉️ Проверь почту и подтверди регистрацию, затем войди.';setAuthMode('signin')}
+  }else{
+   const {data,error}=await db.auth.signInWithPassword({email,password});if(error)throw error;
+   await activateProfile(data.user);
+  }
+ }catch(err){el('profileError').textContent=err.message||'Ошибка входа'}finally{button.disabled=false}
+});
+el('signoutButton').addEventListener('click',async()=>{await db?.auth.signOut();cloudUser=null;cloudReady=false;activeNick='';wordStats={};el('profileName').textContent='Войти';setAuthMode('signin');openProfiles()});
 el('closeStats').addEventListener('click',()=>el('statsOverlay').classList.add('hidden'));
 el('statsOverlay').addEventListener('click',e=>{if(e.target===el('statsOverlay'))el('statsOverlay').classList.add('hidden')});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')el('statsOverlay').classList.add('hidden')});
-if(!activeNick)el('game').setAttribute('aria-hidden','true');
+el('game').setAttribute('aria-hidden','true');
+(async()=>{if(!db){openProfiles();el('profileError').textContent='Не удалось подключить Supabase. Проверь интернет.';return}try{const {data:{session},error}=await db.auth.getSession();if(error)throw error;if(session?.user)await activateProfile(session.user);else openProfiles()}catch(err){openProfiles();el('profileError').textContent='Не удалось восстановить вход: '+err.message}})();
 </script></body></html>
